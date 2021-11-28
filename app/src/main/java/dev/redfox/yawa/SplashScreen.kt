@@ -19,7 +19,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         mfusedlocation = LocationServices.getFusedLocationProviderClient(this)
-        getLastLocation()
+//        getLastLocation()
 
         Handler().postDelayed(Runnable {
 
@@ -28,28 +28,28 @@ class SplashScreen : AppCompatActivity() {
         }, 400)
     }
 
-    private fun getLastLocation() {
-        if (checkPermission()) {
-            if(locationEnable()){
-                mfusedlocation.lastLocation.addOnCompleteListener {
-                    task->
-                    var location:Location?=task.result
-                }
-            }
-        }
-        else
-            requestPermission()
-    }
-
-    private fun locationEnable(): Boolean {
-
-    }
-
-    private fun requestPermission() {
-
-    }
-
-    private fun checkPermission(): Boolean{
-
-    }
+//    private fun getLastLocation() {
+//        if (checkPermission()) {
+//            if(locationEnable()){
+//                mfusedlocation.lastLocation.addOnCompleteListener {
+//                    task->
+//                    var location:Location?=task.result
+//                }
+//            }
+//        }
+//        else
+//            requestPermission()
+//    }
+//
+//    private fun locationEnable(): Boolean {
+//
+//    }
+//
+//    private fun requestPermission() {
+//
+//    }
+//
+//    private fun checkPermission(): Boolean{
+//
+//    }
 }

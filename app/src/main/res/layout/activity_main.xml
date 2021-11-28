@@ -37,18 +37,30 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@color/purple_200" />
+                android:layout_height="90dp"
+                android:text="11°"
+                android:textColor="#2B2B2B"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textSize="60sp"
+                android:background="@color/white" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@color/black" />
+                android:layout_height="60dp"
+                android:text="New York City, NY"
+                android:textSize="27sp"
+                android:textColor="#2B2B2B"
+                android:textAlignment="center"
+                android:background="@color/white" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/purple_200" />
+                android:layout_height="25dp"
+                android:text="Rainy to partly cloudy."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:background="@color/white" />
 
         </LinearLayout>
 
