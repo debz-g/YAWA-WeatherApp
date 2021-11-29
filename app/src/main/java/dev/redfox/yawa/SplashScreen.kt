@@ -46,7 +46,7 @@ class SplashScreen : AppCompatActivity() {
             1. location permission --> denied by user
             2. location permission denied through settings for app specific
             3. gps is manually turned off
-            4. need to gib perms for location
+            4. need to give perms for location
 
     */
 
