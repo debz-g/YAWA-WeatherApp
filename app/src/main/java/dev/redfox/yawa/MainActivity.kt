@@ -35,8 +35,12 @@ class MainActivity : AppCompatActivity() {
         binding.tempText.setOnClickListener {
             getLastLocation()
         }
-    }
 
+        binding.swipeToRefresh.setOnRefreshListener {
+            getLastLocation()
+            binding.swipeToRefresh.isRefreshing = false
+        }
+    }
 
     private fun getLastLocation() {
         if (checkPermission()) {
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             } else {
-                Toast.makeText(this, "Please Turn on GPS from settings", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please Turn on GPS from settings", Toast.LENGTH_SHORT).show()
             }
         } else
             requestPermission()
