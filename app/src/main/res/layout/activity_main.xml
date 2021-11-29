@@ -86,9 +86,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/humidityImage"
-                    android:layout_width="25dp"
-                    android:layout_height="35dp"
-                    android:foreground="@drawable/ic_humidity"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:foreground="@drawable/ic_fog0"
                     android:outlineAmbientShadowColor="#00FFFFFF"
                     android:outlineSpotShadowColor="#00FFFFFF" />
 
@@ -117,7 +117,7 @@
                         android:fontFamily="@font/futura_bold"
                         android:text="85%"
                         android:textColor="#101010"
-                        android:textSize="19dp" />
+                        android:textSize="17dp" />
                 </LinearLayout>
 
 
@@ -142,14 +142,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingVertical="30dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="20dp">
+                android:paddingLeft="15dp"
+                android:paddingRight="5dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/uvImage"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:foreground="@drawable/ic_sun_full"
+                    android:foreground="@drawable/ic_windy0"
                     android:outlineAmbientShadowColor="#00FFFFFF"
                     android:outlineSpotShadowColor="#00FFFFFF" />
 
@@ -162,23 +162,23 @@
                     android:paddingLeft="10dp">
 
                     <TextView
-                        android:id="@+id/uvText"
+                        android:id="@+id/windText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/futura_medium"
-                        android:text="UV Index"
+                        android:text="Wind Speed"
                         android:textColor="#9C9C9C"
-                        android:textSize="16dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/uvValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/futura_bold"
-                        android:text="2 of 10"
+                        android:text="10 Km/h"
                         android:textColor="#101010"
-                        android:textSize="19dp" />
+                        android:textSize="16dp" />
                 </LinearLayout>
 
 
@@ -215,9 +215,9 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/sunriseImage"
-                    android:layout_width="43dp"
-                    android:layout_height="30dp"
-                    android:foreground="@drawable/ic_sun_half"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:foreground="@drawable/ic_pcloudy1"
                     android:outlineAmbientShadowColor="#00FFFFFF"
                     android:outlineSpotShadowColor="#00FFFFFF" />
 
@@ -271,14 +271,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingVertical="30dp"
-                android:paddingLeft="25dp"
-                android:paddingRight="20dp">
+                android:paddingLeft="15dp"
+                android:paddingRight="10dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/sunsetImage"
-                    android:layout_width="43dp"
-                    android:layout_height="30dp"
-                    android:foreground="@drawable/ic_sun_half"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:foreground="@drawable/ic_mcloudy1"
                     android:outlineAmbientShadowColor="#00FFFFFF"
                     android:outlineSpotShadowColor="#00FFFFFF" />
 
