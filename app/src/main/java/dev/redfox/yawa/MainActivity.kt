@@ -14,16 +14,23 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.location.LocationManagerCompat.isLocationEnabled
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
+import dev.redfox.yawa.networking.Repository
+import dev.redfox.yawa.utils.Constants.Companion.APP_ID
 
 private lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var mfusedlocation: FusedLocationProviderClient
     private var reqCode = 1010
+    private lateinit var viewModel: MainViewModel
+    @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,6 +47,17 @@ class MainActivity : AppCompatActivity() {
             getLastLocation()
             binding.swipeToRefresh.isRefreshing = false
         }
+
+        val repository =Repository()
+        val viewModelFactory = MainViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+        getLastLocation()
+        var lat = mfusedlocation.lastLocation.result.latitude
+        var lon = mfusedlocation.lastLocation.result.longitude
+        viewModel.getWeatherData(APP_ID, lat, lon)
+        viewModel.wResponse.observe(this, Observer {
+            binding.tempText.text = it.body()?.main?.temp.toString()
+        })
     }
 
     private fun getLastLocation() {
@@ -50,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                     if (location == null) {
                         newLocation()
                     } else {
-                        Log.i("Location", location.longitude.toString())
+                        Log.i("Debz", location.longitude.toString() + " and " + location.latitude.toString())
                     }
                 }
             } else {
