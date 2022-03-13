@@ -1,9 +1,6 @@
 package dev.redfox.yawa
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import dev.redfox.yawa.model.WeatherResponse
 import dev.redfox.yawa.networking.Repository
 import dev.redfox.yawa.networking.WeatherAPI
@@ -14,13 +11,20 @@ import retrofit2.Response
 
 class MainViewModel(private val repository: Repository): ViewModel() {
 
-    var wResponse: MutableLiveData<Response<WeatherResponse>> = MutableLiveData()
+    private val _wResponse = MutableLiveData<Response<WeatherResponse>>()
+    val wResponse: LiveData<Response<WeatherResponse>> get() = _wResponse
 
-    fun getWeatherData(appid: String, lat: Double, lon: Double){
+    fun getData(lat: Double, lon: Double,appid: String){
         viewModelScope.launch {
-            val response = repository.getWeatherData(appid, lat, lon)
-            wResponse.value = response
+            val response = repository.getData(lat, lon, appid)
+            _wResponse.value = response
         }
+    }
+}
+
+class MainViewModelFactory(val repository: Repository): ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return MainViewModel(repository) as T
     }
 }
 

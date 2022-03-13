@@ -73,6 +73,7 @@
 
 
             <TextView
+                android:id="@+id/tvCity"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="New York City, NY"
@@ -82,6 +83,7 @@
                 android:background="@color/white" />
 
             <TextView
+                android:id="@+id/tvWeatherDesc"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:text="Rainy to partly cloudy."
