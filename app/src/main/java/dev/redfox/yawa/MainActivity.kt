@@ -37,9 +37,14 @@ class MainActivity : AppCompatActivity() {
 
         var lat = intent.getDoubleExtra("lat",0.00)
         val lon = intent.getDoubleExtra("lon",0.00)
-
+        Log.d("debz", "${lat} + ${lon}")
         binding.swipeToRefresh.setOnRefreshListener {
+            viewModel.getData(lat,lon, APP_ID)
             binding.swipeToRefresh.isRefreshing = false
+        }
+
+        binding.refreshImg.setOnClickListener {
+            viewModel.getData(lat,lon, APP_ID)
         }
 
         val repository =Repository()
@@ -47,9 +52,16 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.getData(lat, lon, APP_ID)
         viewModel.wResponse.observe(this, Observer {
-            binding.tempText.text = it.body()!!.main.temp.toString()
+            //temperature
+            binding.tempText.text = ((it.body()!!.main.temp)-273.15).toInt().toString() + "°C"
+            //city
             binding.tvCity.text = it.body()!!.name
+            //weather description
             binding.tvWeatherDesc.text = it.body()!!.weather[0].description
+            //humidity
+            binding.humidityPercentage.text = it.body()!!.main.humidity.toString() + "%"
+            //wind speed
+            binding.windText.text = it.body()!!.wind.speed.toString() + "km/h"
         })
     }
 }

@@ -35,7 +35,6 @@ class SplashScreen : AppCompatActivity() {
         getLastLocation()
 
         Handler().postDelayed(Runnable {
-
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, 2000)
